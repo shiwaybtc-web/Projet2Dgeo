@@ -35,3 +35,8 @@ Point Triangle::center() {
     
     return Point(centerX, centerY);
 }
+void Triangle::draw() {
+	// On crée un  (vector) de points
+	std::vector<Point> points_du_triangle = {A, B, C};
+	draw_picture(points_du_triangle);
+}
