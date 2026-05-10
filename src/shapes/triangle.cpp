@@ -56,15 +56,40 @@ void Triangle::translate(Point T) {
 }
 
 void Triangle::resize(double ratio) {
-    // On multiplie  les coordonnées de A
-    A.x *= ratio;
-    A.y *= ratio;
+    Point G = center(); // On récupère ton centre de gravité 
+    //correction le centre changais avec l'ancienne methode
 
-    // On multiplie  les coordonnées de B
-    B.x *= ratio;
-    B.y *= ratio;
+    // On redimensionne l'écart par rapport au centre
+    A.x = G.x + (A.x - G.x) * ratio;
+    A.y = G.y + (A.y - G.y) * ratio;
+    
+    B.x = G.x + (B.x - G.x) * ratio;
+    B.y = G.y + (B.y - G.y) * ratio;
+    
+    C.x = G.x + (C.x - G.x) * ratio;
+    C.y = G.y + (C.y - G.y) * ratio;
+}
 
-    // On multiplie  les coordonnées de C
-    C.x *= ratio;
-    C.y *= ratio;
+void Triangle::rotate(double angle) {
+    Point G = center();
+
+    // ROTATION DU POINT A 
+    // Calcul de l'écart par rapport au centre
+    double dxA = A.x - G.x;
+    double dyA = A.y - G.y;
+    // Formule mathématique appliquée directement à A
+    A.x = G.x + dxA * std::cos(angle) - dyA * std::sin(angle);
+    A.y = G.y + dxA * std::sin(angle) + dyA * std::cos(angle);
+
+    // ROTATION DU POINT B 
+    double dxB = B.x - G.x;
+    double dyB = B.y - G.y;
+    B.x = G.x + dxB * std::cos(angle) - dyB * std::sin(angle);
+    B.y = G.y + dxB * std::sin(angle) + dyB * std::cos(angle);
+
+    // ROTATION DU POINT C
+    double dxC = C.x - G.x;
+    double dyC = C.y - G.y;
+    C.x = G.x + dxC * std::cos(angle) - dyC * std::sin(angle);
+    C.y = G.y + dxC * std::sin(angle) + dyC * std::cos(angle);
 }
