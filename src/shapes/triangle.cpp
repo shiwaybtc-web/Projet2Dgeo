@@ -54,3 +54,17 @@ void Triangle::translate(Point T) {
     C.x += T.x;
     C.y += T.y;
 }
+
+void Triangle::resize(double ratio) {
+    // On multiplie  les coordonnées de A
+    A.x *= ratio;
+    A.y *= ratio;
+
+    // On multiplie  les coordonnées de B
+    B.x *= ratio;
+    B.y *= ratio;
+
+    // On multiplie  les coordonnées de C
+    C.x *= ratio;
+    C.y *= ratio;
+}
