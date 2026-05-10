@@ -25,3 +25,13 @@ double Triangle::area(){
 
 	return std::sqrt(p*(p-d1)*(p-d2)*(p-d3)); //la formule de Héron
 }
+
+Point Triangle::center() {
+    // La coordonnée X du centre est la moyenne des X 
+    double centerX = (A.x + B.x + C.x) / 3.0;
+    
+    // La coordonnée Y du centre est la moyenne des Y 
+    double centerY = (A.y + B.y + C.y) / 3.0;
+    
+    return Point(centerX, centerY);
+}
