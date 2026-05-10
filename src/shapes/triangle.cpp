@@ -37,6 +37,20 @@ Point Triangle::center() {
 }
 void Triangle::draw() {
 	// On crée un  (vector) de points
-	std::vector<Point> points_du_triangle = {A, B, C};
+	std::vector<Point> points_du_triangle = {A, B, C,A}; //correction j'avais oublié de fermer le triangle en mettant Un autre A à la fin
 	draw_picture(points_du_triangle);
+}
+
+void Triangle::translate(Point T) {
+    // On déplace le point A
+    A.x += T.x;
+    A.y += T.y;
+
+    // On déplace le point B
+    B.x += T.x;
+    B.y += T.y;
+
+    // On déplace le point C
+    C.x += T.x;
+    C.y += T.y;
 }
