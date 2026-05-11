@@ -125,13 +125,13 @@ Circle Triangle::inscribedCircle() {
     double p_sum = d1+d2+d3
 
     // Centre du cercle (barycentre des sommets)
-    double Ix = (a * A.x + b * B.x + c * C.x) / p_sum;
-    double Iy = (a * A.y + b * B.y + c * C.y) / p_sum;
+    double Ix = (d1 * A.x + d2 * B.x + d3 * C.x) / p_sum;
+    double Iy = (d1 * A.y + d2 * B.y + d3 * C.y) / p_sum;
     
     // Rayon = Aire / demi-périmètre
     double radius = area() / (perimeter() / 2.0);
 
-    return Circle( radius, Point(Ix, Iy),);
+    return Circle( radius, Point(Ix, Iy));
 }
 
 Circle Triangle::circumscribedCircle() {
@@ -140,7 +140,7 @@ Circle Triangle::circumscribedCircle() {
     double sqB = B.x * B.x + B.y * B.y;
     double sqC = C.x * C.x + C.y * C.y;
 
-    // 2. Le dénominateur commun D
+    // Le dénominateur commun D
     double D = 2 * (A.x * (B.y - C.y) + B.x * (C.y - A.y) + C.x * (A.y - B.y));
 
     if (std::abs(D) < 1e-6) return Circle(A, 0);
@@ -150,6 +150,6 @@ Circle Triangle::circumscribedCircle() {
 
     Point center_pt(Ux, Uy);
 
-    // 4. On crée le cercle avec ce centre et la distance vers le sommet A comme rayon
+    // On crée le cercle avec ce centre et la distance vers le sommet A comme rayon
     return Circle(center_pt, center_pt.distance(A));
 }
