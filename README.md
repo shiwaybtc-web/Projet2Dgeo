@@ -56,25 +56,9 @@ git push origin triangle
 
 On insère le/les test/s dans le main
 
-### Test Triangle
-```
-```
-### Test Carré
+### Test 
 
-
-```
-```
-
-
-### Test Cercle
-
-
-```
-```
-
-
-
-
+Toutes les fonctions ont été validées localemnet via le fichier main.cpp. Nous avons testé chaque méthode (calculs, transformations, relations) en couvrant les scénarios standards ainsi que les cas limites pour garantir la robustesee et la précision du code. 
 
 
 ### Compilation
