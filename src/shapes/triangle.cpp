@@ -88,9 +88,20 @@ void Triangle::rotate(double angle) {
     B.x = G.x + dxB * std::cos(angle) - dyB * std::sin(angle);
     B.y = G.y + dxB * std::sin(angle) + dyB * std::cos(angle);
 
+
     // ROTATION DU POINT C
     double dxC = C.x - G.x;
     double dyC = C.y - G.y;
     C.x = G.x + dxC * std::cos(angle) - dyC * std::sin(angle);
     C.y = G.y + dxC * std::sin(angle) + dyC * std::cos(angle);
+}
+
+//cmparaison 2 triangles
+bool Triangle::equals(Triangle triangle) {
+	//création d'un epsilon pour la comparaison
+	double eps=1e-6;
+
+	return(std::abs(A.x - triangle.A.x) < eps && std::abs(A.y - triangle.A.y) < eps &&
+		   std::abs(B.x - triangle.B.x) < eps && std::abs(B.y - triangle.B.y) < eps &&
+		   std::abs(C.x - triangle.C.x) < eps && std::abs(C.y - triangle.C.y));
 }
