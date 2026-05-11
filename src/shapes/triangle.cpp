@@ -6,14 +6,14 @@
 
 Triangle::Triangle(Point P, Point Q, Point R) : A(P), B(Q), C(R) {}
 
-double d1 = Triangle.A.distance(B);
-double d2 = Triangle.B.distance(C);
-double d3 = Triangle.C.distance(A);
+double d1 = A.distance(B);
+double d2 = B.distance(C);
+double d3 = C.distance(A);
 double eps=1e-6; 	//création d'un epsilon pour la comparaison
 
 double Triangle::perimeter() {
 
-	return d1 + d2 + d3; //on somme les 3 cotés pour obtenir le perimetre
+	return A.distance(B) +  B.distance(C) + C.distance(A); //on somme les 3 cotés pour obtenir le perimetre
 }
 
 double Triangle::area(){
@@ -21,7 +21,7 @@ double Triangle::area(){
 	//on cacule de demie perimetre
 	double p= perimeter()/2;
 
-	return std::sqrt(p*(p-d1)*(p-d2)*(p-d3)); //la formule de Héron
+	return std::sqrt(p*(p-A.distance(B))*(p-B.distance(C))*(p-C.distance(A))); //la formule de Héron
 }
 
 Point Triangle::center() {
@@ -111,22 +111,22 @@ bool Triangle::isRightAngled(){
 
 bool Triangle::isEquilateral(){
 
-	return (std::abs(d1 - d2) < eps && std::abs(d2 - d3) < eps);//comparaison des 3 côtés
+	return (std::abs(A.distance(B) - B.distance(C)) < eps && std::abs(B.distance(C) - C.distance(A)) < eps);//comparaison des 3 côtés
 }
 
 bool Triangle::isIsoceles(){
 
- return (std::abs(d1 - d2) < eps || std::abs(d1 - d3) < eps || std::abs(d3 - d2) < eps);//comparaison de 2côté minimum
+ return (std::abs(A.distance(B) - B.distance(C)) < eps || std::abs(A.distance(B) - C.distance(A)) < eps || std::abs(C.distance(A) - B.distance(C)) < eps);//comparaison de 2côté minimum
 }
 
 
 Circle Triangle::inscribedCircle() {
   
-    double p_sum = d1+d2+d3;
+    double p_sum = A.distance(B)+B.distance(C)+C.distance(A);
 
     // Centre du cercle (barycentre des sommets)
-    double Ix = (d1 * A.x + d2 * B.x + d3 * C.x) / p_sum;
-    double Iy = (d1 * A.y + d2 * B.y + d3 * C.y) / p_sum;
+    double Ix = (A.distance(B) * A.x + B.distance(C) * B.x + C.distance(A) * C.x) / p_sum;
+    double Iy = (A.distance(B) * A.y + B.distance(C) * B.y + C.distance(A) * C.y) / p_sum;
     
     // Rayon = Aire / demi-périmètre
     double radius = area() / (perimeter() / 2.0);
