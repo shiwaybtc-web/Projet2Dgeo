@@ -2,7 +2,7 @@
 #include "shapes/triangle.hpp"
 #include <cmath>
 #include "draw.hpp"
-
+#include "shapes/circle.hpp"
 
 Triangle::Triangle(Point P, Point Q, Point R) : A(P), B(Q), C(R) {}
 
