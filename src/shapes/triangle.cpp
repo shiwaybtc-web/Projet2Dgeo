@@ -6,9 +6,9 @@
 
 Triangle::Triangle(Point P, Point Q, Point R) : A(P), B(Q), C(R) {}
 
-double triangle::d1 = A.distance(B);
-double triangle::d2 = B.distance(C);
-double triangle::d3 = C.distance(A);
+double d1 = Triangle.A.distance(B);
+double d2 = Triangle.B.distance(C);
+double d3 = Triangle.C.distance(A);
 double eps=1e-6; 	//création d'un epsilon pour la comparaison
 
 double Triangle::perimeter() {
@@ -122,7 +122,7 @@ bool Triangle::isIsoceles(){
 
 Circle Triangle::inscribedCircle() {
   
-    double p_sum = d1+d2+d3
+    double p_sum = d1+d2+d3;
 
     // Centre du cercle (barycentre des sommets)
     double Ix = (d1 * A.x + d2 * B.x + d3 * C.x) / p_sum;
