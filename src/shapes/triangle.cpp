@@ -100,9 +100,9 @@ bool Triangle::equals(Triangle triangle) {
 }
 //fonction qui teste si le triangle est un triangle rectangle
 bool Triangle::isRightAngled(){
-	double a2=std::pow(d1,2); //A^2
-	double b2=std::pow(d2,2); //B^2
-	double c2=std::pow(d3,2); //c^2
+	double a2=std::pow(A.distance(B),2); //A^2
+	double b2=std::pow(B.distance(C),2); //B^2
+	double c2=std::pow(C.distance(A),2); //c^2
 	
 	return(a2+b2-c2<eps || a2+c2-b2<eps || c2+a2+-b2<eps); //reciproque du théoreme de Pythagore
 }
