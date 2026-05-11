@@ -6,9 +6,9 @@
 
 Triangle::Triangle(Point P, Point Q, Point R) : A(P), B(Q), C(R) {}
 
-double d1 = A.distance(B);
-double d2 = B.distance(C);
-double d3 = C.distance(A);
+double triangle::d1 = A.distance(B);
+double triangle::d2 = B.distance(C);
+double triangle::d3 = C.distance(A);
 double eps=1e-6; 	//création d'un epsilon pour la comparaison
 
 double Triangle::perimeter() {
@@ -101,7 +101,7 @@ bool Triangle::equals(Triangle triangle) {
 		   std::abs(C.x - triangle.C.x) < eps && std::abs(C.y - triangle.C.y));
 }
 //fonction qui teste si le triangle est un triangle rectangle
-bool triangle::isRightAngled(){
+bool Triangle::isRightAngled(){
 	double a2=std::pow(d1,2); //A^2
 	double b2=std::pow(d2,2); //B^2
 	double c2=std::pow(d3,2); //c^2
@@ -109,12 +109,12 @@ bool triangle::isRightAngled(){
 	return(a2+b2-c2<eps || a2+c2-b2<eps || c2+a2+-b2<eps); //reciproque du théoreme de Pythagore
 }
 
-bool triangle::isEquilateral(){
+bool Triangle::isEquilateral(){
 
 	return (std::abs(d1 - d2) < eps && std::abs(d2 - d3) < eps);//comparaison des 3 côtés
 }
 
-bool triangle::isIsoceles(){
+bool Triangle::isIsoceles(){
 
  return (std::abs(d1 - d2) < eps || std::abs(d1 - d3) < eps || std::abs(d3 - d2) < eps);//comparaison de 2côté minimum
 }
