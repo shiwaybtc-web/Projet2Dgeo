@@ -3,21 +3,16 @@ Projet C++ pour manipuler des objets géométriques en 2D. On peut créer et tes
 
 ## Installation 
 
-Il faut cloner le repo et compiler :
+Il faut cloner (dans le bureau par exemple ) le repo  :
 
 ```bash
+cd Desktop
 git clone https://github.com/shiwaybtc-web/Project2Dgeo.git
 cd Project2dgeo
-make clean
-make
-```
-Puis il faut lancer le programme :
+# Créer sa branche
+git checkout -b triangle
 
-```bash
-./main
 ```
-
-Une fenêtre CTurtle s'ouvre et affiche les formes dessinées
 
 ## Structure
 
@@ -41,8 +36,25 @@ Défini par un rayon et un centre. Calcule la circonférence, l'aire. Il peut ê
 
 Défini par 2 coins opposés. Calcul le côté, le périmètre, l'aire. Il peut être translaté, redimensionné et tourné.
 
+
+# Travail d'équipe
+
+Chaque développeur travaille sur sa propre branche ( triangle, cercle, square) et fais des push réguliers. Le chef de projet teste et donne un retour.
+
+```bash
+
+# Développer
+# ... modifier src/shapes/triangle.cpp ...
+
+# Commit et push
+git add src/shapes/triangle.cpp
+git commit -m "Implémentation du constructeur"
+git push origin triangle
+```
+
 ## Utilisation
 
+On insère le/les test/s dans le main
 ```cpp
 #include "triangle.hpp"
 
@@ -55,6 +67,20 @@ int main() {
     return 0;
 }
 ```
+Puis il faut compiler :
+
+```bash
+g++ -std=c++23 -Iinclude -o main src/*.cpp src/shapes/*.cpp main.cpp -lgdi32 -luser32
+```
+
+Puis il faut lancer le programme :
+
+```bash
+main
+```
+
+Une fenêtre CTurtle s'ouvre et affiche les formes dessinées.
+
 ## Équipe
 
 - **Chef de projet** - Alexandre Moussier et Zineb Serradji
@@ -63,22 +89,6 @@ int main() {
 - **Développeur Carré** - Adam Menacer
 
 
-# Travail d'équipe
-
-Chaque développeur travaille sur sa propre branche ( triangle, cercle, square) et fais des push réguliers. Le chef de projet teste et donne un retour.
-
-```bash
-# Créer sa branche
-git checkout -b triangle
-
-# Développer
-# ... modifier src/shapes/triangle.cpp ...
-
-# Commit et push
-git add src/shapes/triangle.cpp
-git commit -m "Implémentation du constructeur"
-git push origin triangle
-```
 
 ## Licence
 
