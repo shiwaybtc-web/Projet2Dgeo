@@ -6,9 +6,7 @@
 
 Triangle::Triangle(Point P, Point Q, Point R) : A(P), B(Q), C(R) {}
 
-double d1 = A.distance(B);
-double d2 = B.distance(C);
-double d3 = C.distance(A);
+
 double eps=1e-6; 	//création d'un epsilon pour la comparaison
 
 double Triangle::perimeter() {
