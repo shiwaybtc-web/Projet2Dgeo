@@ -3,21 +3,16 @@ Projet C++ pour manipuler des objets géométriques en 2D. On peut créer et tes
 
 ## Installation 
 
-Il faut cloner le repo et compiler :
+Il faut cloner (dans le bureau par exemple ) le repo  :
 
 ```bash
+cd Desktop
 git clone https://github.com/shiwaybtc-web/Project2Dgeo.git
 cd Project2dgeo
-make clean
-make
-```
-Puis il faut lancer le programme :
+# Créer sa branche
+git checkout -b triangle
 
-```bash
-./main
 ```
-
-Une fenêtre CTurtle s'ouvre et affiche les formes dessinées
 
 ## Structure
 
@@ -31,36 +26,15 @@ Une fenêtre CTurtle s'ouvre et affiche les formes dessinées
 
 ### Triangle
 
-Défini par 3 points. Calcule le périmètre, l'aire, le centre. Il peut être translaté, redimensionné et tourné.
+Défini par 3 points. Calcule le périmètre, aire, centre, type(isocèle/équilatéral/rectangle) et cercles associés. Translaté, redimensionné et tourné.
 
 ### Cercle 
 
-Défini par un rayon et un centre. Calcule la circonférence, l'aire. Il peut être translaté, redimensionné et tourné.
+Défini par un rayon et un centre. Calcule l'aire et la circonférence. Il peut être translaté, redimensionné, tourné et comparé (égalité).
 
 ### Square 
 
-Défini par 2 coins opposés. Calcul le côté, le périmètre, l'aire. Il peut être translaté, redimensionné et tourné.
-
-## Utilisation
-
-```cpp
-#include "triangle.hpp"
-
-int main() {
-    Triangle t(Point(0, 0), Point(10, 0), Point(5, 10));
-    t.display();
-    std::cout << "Périmètre: " << t.perimeter() << std::endl;
-    t.translate(Point(5, 5));
-    t.draw();
-    return 0;
-}
-```
-## Équipe
-
-- **Chef de projet** - Alexandre Moussier et Zineb
-- **Développeur Triangle** - Younes Ben Yahia
-- **Développeur Cercle** - Adam Menacer
-- **Développeur Carré** - Catherine Grace Djuichou Fotso
+Défini par 2 coins opposés. Calcul côté, perimètre, aire, centre et cercles associés. Translaté, redimensionné et tourné.
 
 
 # Travail d'équipe
@@ -68,8 +42,6 @@ int main() {
 Chaque développeur travaille sur sa propre branche ( triangle, cercle, square) et fais des push réguliers. Le chef de projet teste et donne un retour.
 
 ```bash
-# Créer sa branche
-git checkout -b triangle
 
 # Développer
 # ... modifier src/shapes/triangle.cpp ...
@@ -79,6 +51,62 @@ git add src/shapes/triangle.cpp
 git commit -m "Implémentation du constructeur"
 git push origin triangle
 ```
+
+## Utilisation
+
+On insère le/les test/s dans le main
+
+### Test Triangle
+```
+```
+### Test Carré
+
+
+```
+```
+
+
+### Test Cercle
+
+
+```
+```
+
+
+
+
+
+
+### Compilation
+
+Puis il faut compiler :
+
+```bash
+g++ -std=c++23 -Iinclude -o main src/*.cpp src/shapes/*.cpp main.cpp -lgdi32 -luser32
+```
+On peut aussi utiliser ( si ...) :
+
+```bash
+make clean
+make
+```
+
+Puis il faut lancer le programme :
+
+```bash
+main
+```
+
+Une fenêtre CTurtle s'ouvre et affiche les formes dessinées.
+
+## Équipe
+
+- **Chef de projet** - Alexandre Moussier et Zineb Amel Serradji
+- **Développeur Triangle** - Younes Ben Yahia
+- **Développeur Cercle** - Catherine Grace Djuichou Fotso
+- **Développeur Carré** - Adam Menacer
+
+
 
 ## Licence
 
