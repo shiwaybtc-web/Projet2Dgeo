@@ -141,7 +141,7 @@ Circle Triangle::circumscribedCircle() {
     // Le dénominateur commun D
     double D = 2 * (A.x * (B.y - C.y) + B.x * (C.y - A.y) + C.x * (A.y - B.y));
 
-    if (std::abs(D) < 1e-6) return Circle(A, 0);
+    if (std::abs(D) < 1e-6) return Circle(0, A);
 
     double Ux = (sqA * (B.y - C.y) + sqB * (C.y - A.y) + sqC * (A.y - B.y)) / D;
     double Uy = (sqA * (C.x - B.x) + sqB * (A.x - C.x) + sqC * (B.x - A.x)) / D;
@@ -149,5 +149,5 @@ Circle Triangle::circumscribedCircle() {
     Point center_pt(Ux, Uy);
 
     // On crée le cercle avec ce centre et la distance vers le sommet A comme rayon
-    return Circle(center_pt, center_pt.distance(A));
+    return Circle(center_pt.distance(A),center_pt);
 }
