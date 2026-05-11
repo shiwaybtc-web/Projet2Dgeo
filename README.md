@@ -57,28 +57,20 @@ git push origin triangle
 On insère le/les test/s dans le main
 
 ### Test Triangle
-```cpp
-#include "triangle.hpp"
-
-int main() {
-    Triangle t(Point(0, 0), Point(10, 0), Point(5, 10));
-    t.display();
-    std::cout << "Périmètre: " << t.perimeter() << std::endl;
-    t.translate(Point(5, 5));
-    t.draw();
-    return 0;
-}
+```
 ```
 ### Test Carré
 
 
-
+```
+```
 
 
 ### Test Cercle
 
 
-
+```
+```
 
 
 
