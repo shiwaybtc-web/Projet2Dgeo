@@ -6,21 +6,18 @@
 
 Triangle::Triangle(Point P, Point Q, Point R) : A(P), B(Q), C(R) {}
 
+double d1 = A.distance(B);
+double d2 = B.distance(C);
+double d3 = C.distance(A);
+double eps=1e-6; 	//création d'un epsilon pour la comparaison
 
 double Triangle::perimeter() {
-
-	double d1 = A.distance(B);
-	double d2 = B.distance(C);
-	double d3 = C.distance(A);
 
 	return d1 + d2 + d3; //on somme les 3 cotés pour obtenir le perimetre
 }
 
 double Triangle::area(){
 
-	double d1 = A.distance(B);
-	double d2 = B.distance(C);
-	double d3 = C.distance(A);
 	//on cacule de demie perimetre
 	double p= perimeter()/2;
 
@@ -98,19 +95,23 @@ void Triangle::rotate(double angle) {
 
 //cmparaison 2 triangles
 bool Triangle::equals(Triangle triangle) {
-	//création d'un epsilon pour la comparaison
-	double eps=1e-6;
 
 	return(std::abs(A.x - triangle.A.x) < eps && std::abs(A.y - triangle.A.y) < eps &&
 		   std::abs(B.x - triangle.B.x) < eps && std::abs(B.y - triangle.B.y) < eps &&
 		   std::abs(C.x - triangle.C.x) < eps && std::abs(C.y - triangle.C.y));
 }
-
+//fonction qui teste si le triangle est un triangle rectangle
 bool triangle::isRightAngled(){
 	double a2=std::pow(B.distance(C),2); //A^2
 	double b2=std::pow(A.distance(C),2); //B^2
 	double c2=std::pow(A.distance(B),2); //c^2
-	double eps=1e-6;
 	
 	return(a2+b2-c2<eps || a2+c2-b2<eps || c2+a2+-b2<eps); //reciproque du théoreme de Pythagore
 }
+
+bool triangle::isEquilateral(){
+
+	return (std::abs(d1 - d2) < eps && std::abs(d2 - d3) < eps);
+}
+
+
