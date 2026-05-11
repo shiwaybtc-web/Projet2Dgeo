@@ -119,9 +119,17 @@ bool triangle::isIsoceles(){
  return (std::abs(d1 - d2) < eps || std::abs(d1 - d3) < eps || std::abs(d3 - d2) < eps);//comparaison de 2côté minimum
 }
 
-Circle inscribedCircle(){
-	//distance entre le centre et un sommet
-	d_s=d1.distance(center)
 
-	return(circle(d_s,center()));
+Circle Triangle::inscribedCircle() {
+  
+    double p_sum = d1+d2+d3
+
+    // Centre du cercle (barycentre des sommets)
+    double Ix = (a * A.x + b * B.x + c * C.x) / p_sum;
+    double Iy = (a * A.y + b * B.y + c * C.y) / p_sum;
+    
+    // Rayon = Aire / demi-périmètre
+    double radius = area() / (perimeter() / 2.0);
+
+    return Circle(Point(Ix, Iy), radius);
 }
