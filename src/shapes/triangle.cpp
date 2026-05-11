@@ -119,3 +119,9 @@ bool triangle::isIsoceles(){
  return (std::abs(d1 - d2) < eps || std::abs(d1 - d3) < eps || std::abs(d3 - d2) < eps);//comparaison de 2côté minimum
 }
 
+Circle inscribedCircle(){
+	//distance entre le centre et un sommet
+	d_s=d1.distance(center)
+
+	return(circle(d_s,center()));
+}
