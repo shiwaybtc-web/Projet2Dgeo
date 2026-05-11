@@ -6,14 +6,15 @@
 
 Circle::Circle(double r, Point c) : radius(r), center(c) {};
 double Circle::circumference() {
-	return 3.14 * 2 * radius;
+	return 3.14 * 2 * radius; 
 }
 double Circle::area() {
 	return 3.14 * radius * radius;
 }
 void Circle::draw() {
 	std::vector<Point> points;
-	for (int i = 0; i < 360; i = i + 10) {
+	for (int i = 0; i < 360; i = i + 10)  // obtention de 36 angles pour le cercle 
+	{
 		double a = i * 3.14 / 180;
 		double x = center.x + radius * cos(a); //abscisse du point appartenant au cercle
 		double y = center.y + radius * sin(a); //ordonnée du point appartenant au cercle
@@ -28,4 +29,14 @@ void Circle::translate(Point T) {
 }
 void Circle::resize(double ratio) {
 	double r = radius * ratio;
+}
+bool Circle::equals(Circle circle) {
+	if (radius == circle.radius) {
+		if ((center.x == circle.center.x) && (center.y == circle.center.y))
+		{
+			return true;
+		}
+		
+	}
+	return false;
 }
