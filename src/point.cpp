@@ -8,7 +8,7 @@ double Point::distance(Point B) {
 	double dx = x - B.x;
 	double dy = y - B.y;
 	return std::sqrt(dx*dx + dy*dy);
-=======
+
     return std::sqrt((x - B.x) * (x - B.x) + (y - B.y) * (y - B.y));
 
 }
