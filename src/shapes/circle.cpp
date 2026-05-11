@@ -26,3 +26,6 @@ void Circle::translate(Point T) {
 	s.x = center.x + T.x;
 	s.y = center.y + T.y;
 }
+void Circle::resize(double ratio) {
+	double r = radius * ratio;
+}
