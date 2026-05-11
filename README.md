@@ -55,6 +55,8 @@ git push origin triangle
 ## Utilisation
 
 On insère le/les test/s dans le main
+
+### Test Triangle
 ```cpp
 #include "triangle.hpp"
 
@@ -67,10 +69,34 @@ int main() {
     return 0;
 }
 ```
+### Test Carré
+
+
+
+
+
+### Test Cercle
+
+
+
+
+
+
+
+
+
+### Compilation
+
 Puis il faut compiler :
 
 ```bash
 g++ -std=c++23 -Iinclude -o main src/*.cpp src/shapes/*.cpp main.cpp -lgdi32 -luser32
+```
+On peut aussi utiliser ( si ...) :
+
+```bash
+make clean
+make
 ```
 
 Puis il faut lancer le programme :
