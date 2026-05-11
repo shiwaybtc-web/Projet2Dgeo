@@ -131,3 +131,23 @@ Circle Triangle::inscribedCircle() {
 
     return Circle( radius, Point(Ix, Iy));
 }
+
+Circle Triangle::circumscribedCircle() {
+    // On calcule les carrés des distances à l'origine pour simplifier les lignes suivantes
+    double sqA = A.x * A.x + A.y * A.y;
+    double sqB = B.x * B.x + B.y * B.y;
+    double sqC = C.x * C.x + C.y * C.y;
+
+    // Le dénominateur commun D
+    double D = 2 * (A.x * (B.y - C.y) + B.x * (C.y - A.y) + C.x * (A.y - B.y));
+
+    if (std::abs(D) < 1e-6) return Circle(0, A);
+
+    double Ux = (sqA * (B.y - C.y) + sqB * (C.y - A.y) + sqC * (A.y - B.y)) / D;
+    double Uy = (sqA * (C.x - B.x) + sqB * (A.x - C.x) + sqC * (B.x - A.x)) / D;
+
+    Point center_pt(Ux, Uy);
+
+    // On crée le cercle avec ce centre et la distance vers le sommet A comme rayon
+    return Circle(center_pt.distance(A),center_pt);
+}
