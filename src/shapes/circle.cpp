@@ -15,7 +15,7 @@ void Circle::draw() {
 	std::vector<Point> points;
 	for (int i = 0; i <= 360; i = i + 10)  // obtention de 36 angles pour le cercle 
 	{
-		double a = i * 3.14 / 180;
+		double a = i * 3.141592653589793238462643383279501884197 / 180;
 		double x = center.x + radius * cos(a); //abscisse du point appartenant au cercle
 		double y = center.y + radius * sin(a); //ordonnée du point appartenant au cercle
 		points.push_back(Point(x, y)); //ajout du point pour le tracé
