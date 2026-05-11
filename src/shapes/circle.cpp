@@ -21,3 +21,8 @@ void Circle::draw() {
 	}
 	draw_picture(points);
 }
+void Circle::translate(Point T) {
+	Point s;
+	s.x = center.x + T.x;
+	s.y = center.y + T.y;
+}
