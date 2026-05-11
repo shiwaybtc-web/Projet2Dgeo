@@ -101,7 +101,7 @@ Une fenêtre CTurtle s'ouvre et affiche les formes dessinées.
 
 ## Équipe
 
-- **Chef de projet** - Alexandre Moussier et Zineb Serradji
+- **Chef de projet** - Alexandre Moussier et Zineb Amel Serradji
 - **Développeur Triangle** - Younes Ben Yahia
 - **Développeur Cercle** - Catherine Grace Djuichou Fotso
 - **Développeur Carré** - Adam Menacer
