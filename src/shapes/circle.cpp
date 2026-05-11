@@ -13,7 +13,7 @@ double Circle::area() {
 }
 void Circle::draw() {
 	std::vector<Point> points;
-	for (int i = 0; i < 360; i = i + 10)  // obtention de 36 angles pour le cercle 
+	for (int i = 0; i <= 360; i = i + 10)  // obtention de 36 angles pour le cercle 
 	{
 		double a = i * 3.14 / 180;
 		double x = center.x + radius * cos(a); //abscisse du point appartenant au cercle
