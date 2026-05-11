@@ -8,7 +8,7 @@
 Square::Square(Point P, Point Q) : A(P), C(Q) {}
 
 double Square::side() {
-    return A.distance(C) / std::sqrt(2.0);
+    return A.distance(C) / std::sqrt(2.0); //diagonale=cote*racinede2
 }
 
 double Square::perimeter() {
@@ -25,15 +25,14 @@ Point Square::center() {
 }
 
 void Square::draw() {
-    Point O = center();
+    Point O = center(); 
 
-    double vx = A.x - O.x;
-    double vy = A.y - O.y;
+    double vx = A.x - O.x;  //cmb faut bouger en x pr aller de 0 a A
+    double vy = A.y - O.y;  //pareil pr y
 
-    Point B(O.x - vy, O.y + vx);
-    Point D(O.x + vy, O.y - vx);
-
-    std::vector<Point> points = { A, B, C, D, A };
+    Point B(O.x - vy, O.y + vx); //calcule le pt B en tourant de 90 degré
+    Point D(O.x + vy, O.y - vx); //calcule D en tournant de 90 degré dans lautre sens
+    std::vector<Point> points = {A, B, C, D, A};
     draw_picture(points);
 }
 
@@ -67,27 +66,27 @@ void Square::rotate(double angle) {
     double cx = C.x - O.x;
     double cy = C.y - O.y;
 
-    A.x = O.x + ax * cosA - ay * sinA;
-    A.y = O.y + ax * sinA + ay * cosA;
+    A.x = O.x + ax * cosA - ay * sinA; //xprime=xcos(angle)-ysin(angle)
+    A.y = O.y + ax * sinA + ay * cosA; //yprime=xsin(angle)+ycos(angle)
 
     C.x = O.x + cx * cosA - cy * sinA;
     C.y = O.y + cx * sinA + cy * cosA;
 }
 
 bool Square::equals(Square square) {
-    const double eps = 1e-9;
+    const double eps = 1e-9; //margederreur
 
     bool sameOrder =
-        std::abs(A.x - square.A.x) < eps &&
-        std::abs(A.y - square.A.y) < eps &&
-        std::abs(C.x - square.C.x) < eps &&
-        std::abs(C.y - square.C.y) < eps;
+        std::abs(A.x - square.A.x)<eps && //onconsiderelesvaleursegales si leur diff est tres petite
+        std::abs(A.y - square.A.y)<eps &&
+        std::abs(C.x - square.C.x)<eps &&
+        std::abs(C.y - square.C.y)<eps;
 
     bool reverseOrder =
-        std::abs(A.x - square.C.x) < eps &&
-        std::abs(A.y - square.C.y) < eps &&
-        std::abs(C.x - square.A.x) < eps &&
-        std::abs(C.y - square.A.y) < eps;
+        std::abs(A.x - square.C.x)<eps &&
+        std::abs(A.y - square.C.y)<eps &&
+        std::abs(C.x - square.A.x)<eps &&
+        std::abs(C.y - square.A.y)<eps;
 
     return sameOrder || reverseOrder;
 }
