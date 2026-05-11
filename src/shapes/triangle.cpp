@@ -6,21 +6,18 @@
 
 Triangle::Triangle(Point P, Point Q, Point R) : A(P), B(Q), C(R) {}
 
+double d1 = A.distance(B);
+double d2 = B.distance(C);
+double d3 = C.distance(A);
+double eps=1e-6; 	//création d'un epsilon pour la comparaison
 
 double Triangle::perimeter() {
-
-	double d1 = A.distance(B);
-	double d2 = B.distance(C);
-	double d3 = C.distance(A);
 
 	return d1 + d2 + d3; //on somme les 3 cotés pour obtenir le perimetre
 }
 
 double Triangle::area(){
 
-	double d1 = A.distance(B);
-	double d2 = B.distance(C);
-	double d3 = C.distance(A);
 	//on cacule de demie perimetre
 	double p= perimeter()/2;
 
@@ -88,9 +85,71 @@ void Triangle::rotate(double angle) {
     B.x = G.x + dxB * std::cos(angle) - dyB * std::sin(angle);
     B.y = G.y + dxB * std::sin(angle) + dyB * std::cos(angle);
 
+
     // ROTATION DU POINT C
     double dxC = C.x - G.x;
     double dyC = C.y - G.y;
     C.x = G.x + dxC * std::cos(angle) - dyC * std::sin(angle);
     C.y = G.y + dxC * std::sin(angle) + dyC * std::cos(angle);
+}
+
+//cmparaison 2 triangles
+bool Triangle::equals(Triangle triangle) {
+
+	return(std::abs(A.x - triangle.A.x) < eps && std::abs(A.y - triangle.A.y) < eps &&
+		   std::abs(B.x - triangle.B.x) < eps && std::abs(B.y - triangle.B.y) < eps &&
+		   std::abs(C.x - triangle.C.x) < eps && std::abs(C.y - triangle.C.y));
+}
+//fonction qui teste si le triangle est un triangle rectangle
+bool triangle::isRightAngled(){
+	double a2=std::pow(d1,2); //A^2
+	double b2=std::pow(d2,2); //B^2
+	double c2=std::pow(d3,2); //c^2
+	
+	return(a2+b2-c2<eps || a2+c2-b2<eps || c2+a2+-b2<eps); //reciproque du théoreme de Pythagore
+}
+
+bool triangle::isEquilateral(){
+
+	return (std::abs(d1 - d2) < eps && std::abs(d2 - d3) < eps);//comparaison des 3 côtés
+}
+
+bool triangle::isIsoceles(){
+
+ return (std::abs(d1 - d2) < eps || std::abs(d1 - d3) < eps || std::abs(d3 - d2) < eps);//comparaison de 2côté minimum
+}
+
+
+Circle Triangle::inscribedCircle() {
+  
+    double p_sum = d1+d2+d3
+
+    // Centre du cercle (barycentre des sommets)
+    double Ix = (a * A.x + b * B.x + c * C.x) / p_sum;
+    double Iy = (a * A.y + b * B.y + c * C.y) / p_sum;
+    
+    // Rayon = Aire / demi-périmètre
+    double radius = area() / (perimeter() / 2.0);
+
+    return Circle( radius, Point(Ix, Iy),);
+}
+
+Circle Triangle::circumscribedCircle() {
+    // On calcule les carrés des distances à l'origine pour simplifier les lignes suivantes
+    double sqA = A.x * A.x + A.y * A.y;
+    double sqB = B.x * B.x + B.y * B.y;
+    double sqC = C.x * C.x + C.y * C.y;
+
+    // 2. Le dénominateur commun D
+    double D = 2 * (A.x * (B.y - C.y) + B.x * (C.y - A.y) + C.x * (A.y - B.y));
+
+    if (std::abs(D) < 1e-6) return Circle(A, 0);
+
+    double Ux = (sqA * (B.y - C.y) + sqB * (C.y - A.y) + sqC * (A.y - B.y)) / D;
+    double Uy = (sqA * (C.x - B.x) + sqB * (A.x - C.x) + sqC * (B.x - A.x)) / D;
+
+    Point center_pt(Ux, Uy);
+
+    // 4. On crée le cercle avec ce centre et la distance vers le sommet A comme rayon
+    return Circle(center_pt, center_pt.distance(A));
 }
