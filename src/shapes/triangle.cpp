@@ -105,3 +105,12 @@ bool Triangle::equals(Triangle triangle) {
 		   std::abs(B.x - triangle.B.x) < eps && std::abs(B.y - triangle.B.y) < eps &&
 		   std::abs(C.x - triangle.C.x) < eps && std::abs(C.y - triangle.C.y));
 }
+
+bool triangle::isRightAngled(){
+	double a2=std::pow(B.distance(C),2); //A^2
+	double b2=std::pow(A.distance(C),2); //B^2
+	double c2=std::pow(A.distance(B),2); //c^2
+	double eps=1e-6;
+	
+	return(a2+b2-c2<eps || a2+c2-b2<eps || c2+a2+-b2<eps); //reciproque du théoreme de Pythagore
+}
