@@ -43,13 +43,24 @@ Défini par 2 coins opposés. Calcul le côté, le périmètre, l'aire. Il peut 
 
 ## Utilisation
 
+```cpp
+#include "triangle.hpp"
 
+int main() {
+    Triangle t(Point(0, 0), Point(10, 0), Point(5, 10));
+    t.display();
+    std::cout << "Périmètre: " << t.perimeter() << std::endl;
+    t.translate(Point(5, 5));
+    t.draw();
+    return 0;
+}
+```
 ## Équipe
 
-- **Chef de projet** - Alexandre44834 et 
-- **Développeur Triangle** - younes-univ-saclay
-- **Développeur Cercle** - 
-- **Développeur Carré** - 
+- **Chef de projet** - Alexandre Moussier et Zineb
+- **Développeur Triangle** - Younes Ben Yahia
+- **Développeur Cercle** - Adam Menacer
+- **Développeur Carré** - Catherine Grace Djuichou Fotso
 
 
 # Travail d'équipe
