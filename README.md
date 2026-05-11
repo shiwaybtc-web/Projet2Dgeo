@@ -26,15 +26,15 @@ git checkout -b triangle
 
 ### Triangle
 
-Défini par 3 points. Calcule le périmètre, l'aire, le centre. Il peut être translaté, redimensionné et tourné.
+Défini par 3 points. Calcule le périmètre, aire, centre, type(isocèle/équilatéral/rectangle) et cercles associés. Translaté, redimensionné et tourné.
 
 ### Cercle 
 
-Défini par un rayon et un centre. Calcule la circonférence, l'aire. Il peut être translaté, redimensionné et tourné.
+Défini par un rayon et un centre. Calcule l'aire et la circonférence. Il peut être translaté, redimensionné, tourné et comparé (égalité).
 
 ### Square 
 
-Défini par 2 coins opposés. Calcul le côté, le périmètre, l'aire. Il peut être translaté, redimensionné et tourné.
+Défini par 2 coins opposés. Calcul côté, perimètre, aire, centre et cercles associés. Translaté, redimensionné et tourné.
 
 
 # Travail d'équipe
