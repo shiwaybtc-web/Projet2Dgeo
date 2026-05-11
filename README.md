@@ -56,25 +56,9 @@ git push origin triangle
 
 On insère le/les test/s dans le main
 
-### Test Triangle
-```
-```
-### Test Carré
+### Test 
 
-
-```
-```
-
-
-### Test Cercle
-
-
-```
-```
-
-
-
-
+Toutes les fonctions ont été validées localement via le fichier main.cpp. Nous avons testé chaque méthode (calculs, transformations, relations) en couvrant les scénarios standards ainsi que les cas limites pour garantir la robustesse et la précision du code. 
 
 
 ### Compilation
@@ -84,7 +68,7 @@ Puis il faut compiler :
 ```bash
 g++ -std=c++23 -Iinclude -o main src/*.cpp src/shapes/*.cpp main.cpp -lgdi32 -luser32
 ```
-On peut aussi utiliser ( si ...) :
+On peut aussi utiliser ( si vous avez l'utilitaire make installé) :
 
 ```bash
 make clean
