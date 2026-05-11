@@ -57,10 +57,10 @@ int main() {
 ```
 ## Équipe
 
-- **Chef de projet** - Alexandre Moussier et Zineb
+- **Chef de projet** - Alexandre Moussier et Zineb Serradji
 - **Développeur Triangle** - Younes Ben Yahia
-- **Développeur Cercle** - Adam Menacer
-- **Développeur Carré** - Catherine Grace Djuichou Fotso
+- **Développeur Cercle** - Catherine Grace Djuichou Fotso
+- **Développeur Carré** - Adam Menacer
 
 
 # Travail d'équipe
